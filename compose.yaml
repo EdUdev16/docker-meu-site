@@ -1,0 +1,14 @@
+services:
+  site:
+    build: .
+    ports:
+      - "8080:80"
+  banco:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - dados-banco:/var/lib/postgresql/data
+
+volumes:
+  dados-banco:
