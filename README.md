@@ -1,5 +1,7 @@
 # docker-meu-site
 
+![CI](https://github.com/EdUdev16/docker-meu-site/actions/workflows/ci.yml/badge.svg)
+
 Laboratório de estudo de Docker: uma página web servida por nginx e um banco PostgreSQL, orquestrados com Docker Compose.
 
 ## O que demonstra
@@ -8,6 +10,7 @@ Laboratório de estudo de Docker: uma página web servida por nginx e um banco P
 - **Volume** (`dados-banco`): os dados do Postgres sobrevivem à remoção do container.
 - **Rede**: os serviços se encontram pelo nome (`site` acessa `banco`), sem configurar rede manualmente.
 - **Segredos fora do código**: a senha do banco vem do arquivo `.env`, que não vai para o Git.
+- **CI com GitHub Actions** (`.github/workflows/ci.yml`): a cada push e pull request, constrói a imagem, sobe o container e testa se a página responde.
 
 ## Como rodar
 Requisitos: Docker com o plugin Compose.
@@ -37,6 +40,7 @@ docker compose down -v
 | `index.html` | Página servida pelo nginx |
 | `compose.yaml` | Define os serviços, o volume e a rede |
 | `.env.example` | Modelo das variáveis de ambiente |
+| `.github/workflows/ci.yml` | Pipeline de CI (build + teste) |
 
 ## Autor
 Eduardo Sena Santos Gomes · estudante de ADS · em transição para DevOps.
