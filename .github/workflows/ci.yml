@@ -19,7 +19,7 @@ jobs:
         run: docker build -t meu-site .
 
       # 3. Sobe o container e testa se a página responde com o conteúdo esperado
-      - name: Teste: a página responde
+      - name: Teste da página (deve responder com o conteúdo esperado)
         run: |
           docker run -d --name site -p 8080:80 meu-site
           sleep 3
